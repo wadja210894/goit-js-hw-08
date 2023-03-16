@@ -28,10 +28,9 @@ localStorage.removeItem(STORAGE_KEY);
 }
 
 function TextareaInputHandler(event) {
-    if (event.currentTarget !== '') {
-        formData.email = email.value;
-        formData.message = message.value;
-    };
+formData.email = email.value;
+formData.message = message.value;
+
 localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
