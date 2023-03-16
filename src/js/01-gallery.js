@@ -12,8 +12,6 @@ const items = galleryItems.map(({original, preview, description}) => {
 const galleryBox = document.querySelector('.gallery');
 galleryBox.innerHTML = items;
 
-
 const lightbox = new SimpleLightbox('.gallery a', { caption: true, captionSelector: 'img[alt]', captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250 }); 
-
 
 console.log(galleryItems);
