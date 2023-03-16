@@ -9,19 +9,29 @@ form.addEventListener('input', throttle(TextareaInputHandler, 500));
 
 const STORAGE_KEY = 'feedback-form-state';
 
-const formData = {};
+const formData = {
+    email: email.value,
+    message: message.value
+};
 
 function FormSubmitHandler(event){
 event.preventDefault();
 event.currentTarget.reset();
 localStorage.removeItem(STORAGE_KEY);
-console.log(formData);
+    if (formData.email !== '' && formData.message !== '') {
+        console.log(formData);
+        formData.email = '';
+        formData.message = '';
+    } else {
+        alert('Будь ласка заповніть поля');
+    };
 }
 
-function TextareaInputHandler(event){
-formData.email = email.value;
-formData.message = message.value;
-
+function TextareaInputHandler(event) {
+    if (event.currentTarget !== '') {
+        formData.email = email.value;
+        formData.message = message.value;
+    };
 localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
